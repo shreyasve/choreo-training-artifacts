@@ -1,0 +1,163 @@
+$ git init Demo 
+$ git status = The status command is used to display the state of the working directory and the staging area. It also lists the files that you've changed and those you still need to add or commit.
+$ git status = This command is used to check the commit history.
+To add one file = $ git add Filename
+To add more than one file = $ git add*
+$ git commit -m " Commit Message"
+$ git push [variable name - origin] master
+git config - $ git config --global user.name "ImDwivedi1" & $ git config --global user.email "Himanshudubey481@gmail.com"
+clone - $ git clone URL
+
+
+merge - $ git merge master
+
+Git Merge Conflict
+When two branches are trying to merge, and both are edited at the same time and in the same
+file, Git won't be able to identify which version is to take for changes. Such a situation is called
+merge conflict.
+$ mkdir git-merge-test
+$ cd git-merge-test
+$ git init .
+$ echo "this is some content to mess with" > merge.txt
+$ git add merge.txt
+$ git commit -am"we are commiting the inital content"
+[main (root-commit) d48e74c] we are commiting the inital content
+1 file changed, 1 insertion(+)
+create mode 100644 merge.txt
+
+$ git checkout -b new_branch_to_merge_later
+$ echo "totally different content to merge later" > merge.txt
+$ git commit -am"edited the content of merge.txt to cause a conflict"
+[new_branch_to_merge_later 6282319] edited the content of merge.txt to cause a conflict
+1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git merge new_branch_to_merge_later
+Auto-merging merge.txt
+CONFLICT (content): Merge conflict in merge.txt
+Automatic merge failed; fix conflicts and then commit result
+Git Pull
+The term pull is used to receive data from GitHub. It fetches and merges changes from the
+remote server to your working directory. The git pull command is used to pull a repository.
+Git Branch
+A branch is a version of the repository that diverges from the main working project. It is a
+feature available in most modern version control systems. A Git project can have more than one
+branch.
+Create Branch
+You can create a new branch with the help of the git branch command. This command will be
+used as:
+Syntax:
+1. $ git branch <branch name>
+List Branch
+You can List all of the available branches in your repository by using the following command.
+1. $ git branch
+1. $ git branch -d<branch name>
+
+
+
+
+
+Install Jenkins on Windows
+1.Install Java Development Kit (JDK)
+2.Download JDK 8 and choose windows 32-bit or 64-bit according to your system configuration.
+Click on "accept the license agreement." Set the Path for the Environmental Variable for JDK.
+•Go to System Properties. Under the "Advanced" tab, select "Environment Variables."
+•Under system variables, select "new." Then copy the path of the JDK folder and paste it in
+the corresponding value field. Similarly, do this for JRE.
+•Under system variables, set up a bin folder for JDK in PATH variables.
+•Go to command prompt and type the following to check if Java has been successfully
+installed:
+
+2.Download and Install Jenkins
+3.Download Jenkins. Under LTS, click on windows.
+•After the file is downloaded, unzip it. Click on the folder and install it. Select "finish" once
+done.
+•4. Run Jenkins on Localhost 8080
+•Once Jenkins is installed, explore it. Open the web browser and type "localhost:8080".
+•Enter the credentials and log in. If you install Jenkins for the first time, the dashboard will
+ask you to install the recommended plugins. Install all the recommended plugins.
+5. Jenkins Server Interface
+•New Item allows you to create a new project.
+•Build History shows the status of your builds.
+•Manage System deals with the various configurations of the system.
+6. Build and Run a Job on Jenkins
+•Select a new item (Name - Jenkins_demo). Choose a freestyle project and click Ok.
+•Under the General tab, give a description like "This is my first Jenkins job." Under the
+"Build Triggers" tab, select add built step and then click on the "Execute Windows" batch
+command.
+•In the command box, type the following: echo "Hello... This is my first Jenkins Demo:
+%date%: %time% ". Click on apply and then save.
+•Select build now. You can see a building history has been created. Click on that. In the
+console output, you can see the output of the first Jenkins job with time and date. Project
+configuration
+1. Install python interpreter on local machine.
+2. Write python script and debug the program for any errors.
+
+3. Push the project into git repository.
+
+4. Launch the jenkins and configure the pipeline.
+
+Configuration of Jenkins
+1. Create new project and provide name for the project. Choose “Freestyle Project”.
+
+2. Click on newly created project and move to configuration. Under source Code
+Management provide git repository.
+
+3. Provide branch name where project is located.
+
+
+4. Under Build Triggers select Poll SCM and configure the schedule according to your
+project.
+
+5. In build steps choose “Execute Windows batch command” and provide command for
+execution.
+
+6. Apply and save your configuration.
+7. Click on “Build Now” for detailed output click on “Console Output” and verify the
+process. Finally build status will be displayed according to your project implementation.
+
+
+
+
+
+
+
+
+Install Docker Desktop on Windows
+System requirements
+• WSL version 1.1.3.0 or later.
+• Windows 11 64-bit: Home or Pro version 21H2 or higher, or Enterprise or Education
+version 21H2 or higher.
+• Windows 10 64-bit:
+• We recommend Home or Pro 22H2 (build 19045) or higher, or Enterprise or Education
+22H2 (build 19045) or higher.
+• Minimum required is Home or Pro 21H2 (build 19044) or higher, or Enterprise or
+Education 21H2 (build 19044) or higher.
+• Turn on the WSL 2 feature on Windows. For detailed instructions, refer to the Microsoft
+documentationopen_in_new.
+The following hardware prerequisites are required to successfully run WSL 2 on Windows
+10 or Windows 11:
+• 64-bit processor with Second Level Address Translation (SLAT)open_in_new
+• 4GB system RAM
+• Enable hardware virtualization in BIOS. For more information, see Virtualization.
+Configuration of Java applications
+1. Install prerequisites for java applications like jdk tool.
+2. Configure environment variables for jdk.
+
+
+3. Create java application.
+                    public class sample{
+            public static void main(String[] args) {
+                System.out.println("new java file");
+            }
+            }
+4. Create Dockerfile where configuration details are provided for creating image.
+            FROM openjdk
+            WORKDIR /app
+            COPY . /app
+            RUN javac sample.java
+            CMD [ "java","sample" ]
+5. Complile the java program for any errors.
+6. Create image for the application.
+            docker build -t myjavaapp .
+7. Run the application using docker image.
+            docker run --name java1 myjavaapp
